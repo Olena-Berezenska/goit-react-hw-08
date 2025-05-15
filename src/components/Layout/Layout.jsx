@@ -1,11 +1,15 @@
 import React from 'react';
 import AppBar from '../AppBar/AppBar';
+import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
-    <div>
+    <>
       <AppBar />
-    </div>
+      <main>
+        <Outlet />
+      </main>
+    </>
   );
 };
 

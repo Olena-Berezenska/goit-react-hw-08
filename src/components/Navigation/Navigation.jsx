@@ -8,17 +8,9 @@ const Navigation = () => {
   };
   return (
     <div className={s.navwrapper}>
-      <nav className={s.nav}>
-        <NavLink to="/" className={setActiveClass}>
-          Home
-        </NavLink>
-        <NavLink to="/register" className={setActiveClass}>
-          Register
-        </NavLink>
-        <NavLink to="/login" className={setActiveClass}>
-          Log In
-        </NavLink>
-      </nav>
+      <NavLink to="/" className={setActiveClass}>
+        Home
+      </NavLink>
     </div>
   );
 };

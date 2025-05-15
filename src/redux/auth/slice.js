@@ -1,4 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { login, logout, refreshUser, register } from './operations';
+import { useSelector } from 'react-redux';
+import { selectisLoggedIn } from './selectors';
 
 const initialState = {
   user: {
@@ -6,11 +9,43 @@ const initialState = {
     name: null,
   },
   token: null,
-  islogin: false,
+  isLoggedIn: false,
+  isRefreshing: false,
 };
 const slice = createSlice({
   name: 'auth',
   initialState,
+  extraReducers: builder => {
+    builder
+      .addCase(register.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+        localStorage.setItem('token', action.payload.token);
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+        localStorage.setItem('token', action.payload.token);
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(logout.fulfilled, state => {
+        localStorage.removeItem('token');
+        return initialState;
+      })
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.rejected, state => {
+        state.isRefreshing = false;
+      });
+  },
 });
 
 export const authReducer = slice.reducer;
