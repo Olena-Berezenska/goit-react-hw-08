@@ -1,13 +1,12 @@
 import React from 'react';
 import Contact from '../Contact/Contact';
 import st from './ContactList.module.css';
+import { useSelector } from 'react-redux';
 import {
-  selectLoading,
   selectError,
   selectFilteredContacts,
-} from '../../redux/contacts/slice';
-
-import { useSelector } from 'react-redux';
+  selectLoading,
+} from '../../redux/contacts/selectors';
 
 const ContactList = () => {
   const error = useSelector(selectError);

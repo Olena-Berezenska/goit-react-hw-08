@@ -1,13 +1,13 @@
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
 import AuthNav from '../AuthNav/AuthNav';
-import { selectisLoggedIn } from '../../redux/auth/selectors';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import UserMenu from '../UserMenu/UserMenu';
 import { AppBar as MuiAppBar, Toolbar, Typography, Box } from '@mui/material';
 
 const AppBar = () => {
-  const isLoggedIn = useSelector(selectisLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <MuiAppBar position="static" color="primary">

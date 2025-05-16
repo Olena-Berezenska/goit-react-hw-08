@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { login, logout, refreshUser, register } from './operations';
-import { useSelector } from 'react-redux';
-import { selectisLoggedIn } from './selectors';
 
 const initialState = {
   user: {
