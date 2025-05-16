@@ -27,3 +27,9 @@ button {
   font-size: 28px;
   text-decoration: none;
 }
+.navwrapper {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 40px;
+}

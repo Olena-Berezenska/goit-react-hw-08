@@ -19,9 +19,7 @@ const UserMenu = () => {
   return (
     <Box sx={{ display: 'flex', gap: 4, alignItems: 'center' }}>
       <h2 className={s.username}>{user.name}</h2>
-      <NavLink to="/contacts" className={setActiveClass}>
-        Contacts
-      </NavLink>
+
       <button onClick={handleLogout}>LogOut</button>
     </Box>
   );

@@ -14,6 +14,11 @@ const Navigation = () => {
       <NavLink to="/" className={setActiveClass}>
         Home
       </NavLink>
+      {isLoggedIn && (
+        <NavLink to="/contacts" className={setActiveClass}>
+          Contacts
+        </NavLink>
+      )}
     </div>
   );
 };
